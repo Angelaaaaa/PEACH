@@ -13,4 +13,13 @@
 			</element>
 		</elements>
 	</archetype>
+	<archetype>
+		<name>Body temperature</name>
+		<elements>
+			<element>
+				<name>Temperature</name>
+				<type>Integer</type>
+			</element>
+		</elements>
+	</archetype>
 </template>
