@@ -1,5 +1,6 @@
 var outputfile = ""
-
+var a;
+var b;
 function parser(){
 	var inputdata = document.getElementById("fileinput").value;
 	var result = '5';
@@ -15,16 +16,16 @@ function parser(){
 
 function arraygenerator()
 {
-	var a = ["id","name","homeaddress","whatever"]["text","text","text","integer"];
+	a = ["id","name","homeaddress","whatever"];
+	b =["text","text","text","integer"];
 	return a;
 }
 
 function generatemarkupfile(inputdata){
 	// head = inputdata;
-	var head = generatetap("html,");
-	outputfile = head + generatehead()+generatebody(arraygenerator())+ closetab(head);	
-	
-
+	var head = generatetag("html","");
+	outputfile = head + generatehead()+generatebody()+ closetab(head);	
+	return outputfile;
 }
 
 function  generatehead () {
@@ -32,29 +33,44 @@ function  generatehead () {
 	return head + closetab(head);
 }
 
-function generatebody (a) {
+function generatebody () {
 	var formtag = generatetag("form","");
-	return formtag + generatelist + closetab(formtag);
+	return formtag + generatelist() + closetab(formtag);
 
 }
 
 
 
-function generatelist (argument) {
-	var ul = generatetag("ul","")
-	var listtag = generatetag("li","");
+function generatelist () {
+	a  = arraygenerator();
+	var ul = generatetag("ul","");
+	var result = ul;
+	var length = a.length;
+	
+	listtag = generatetag("li","");
+	for (var i = 0; i < length; i++) {
+    result = result + listtag + generatetag("input",a[i]) + closetab(listtag);    
+    // console.log(generatetag"textarea");
+}
+	result = result + generatebutton() +closetab(ul);
+	return result;
 }
 
-
+function generatebutton()
+{
+	return "<button type = \"submit\" >confirm</button> ";
+}
 
 function generatetag(inputdata,value)
 {
-	if (classname=="")
-		{var head = "<"+inputdata">";}
+	if (value == "")
+		{
+			var head = "<"+inputdata+">\n ";
+		}
 	else
-	{
-		var head = "< + "inputdata+ "value=" + value + ">";
-	}
+		{
+		var head = "<" + inputdata + " value= \"" + value + "\" > \n ";
+		}
 	return head;
 	
 }
