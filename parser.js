@@ -8,17 +8,19 @@ function uploadXML() {
     }
   };
 
-  xmlhttp.open("GET", "sample_template.xml", true);
-  xmlhttp.send();
+  request.open("GET", "sample_template.xml", true);
+  request.send();
 }
 
 function callback(xml) {
-  var doc;
+  var doc, arch, arch_no;
   doc = xml.responseXML;
   
-  x = doc.getElementsByTagName("rand")[0].childNodes[0].nodeValue;
-  console.log(x);
-   
+  arch = doc.getElementsByTagName("archetype");  //get archetypes
+
+  arch_no = arch.length;
+  
+
 }
 
 uploadXML();
