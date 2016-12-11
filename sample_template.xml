@@ -1,5 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <template>
 	<archetype>
-		
+		<name>Blood pressure</name>
+		<elements>
+			<element>
+				<name>Systolic</name>
+				<type>Integer</type>
+			</element>
+			<element>
+				<name>Diastolic</name>
+				<type>Integer</type>
+			</element>
+		</elements>
+	</archetype>
+	<archetype>
+		<name>Body temperature</name>
+		<elements>
+			<element>
+				<name>Temperature</name>
+				<type>Integer</type>
+			</element>
+		</elements>
 	</archetype>
 </template>
