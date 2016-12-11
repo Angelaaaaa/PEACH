@@ -1,8 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rand>rrrrrand</rand>
 <template>
 	<archetype>
 		<name>Blood pressure</name>
 		<elements>
 			<element>
+				<name>Systolic</name>
+				<type>Integer</type>
+			</element>
+			<element>
+				<name>Diastolic</name>
+				<type>Integer</type>
 			</element>
 		</elements>
 	</archetype>
