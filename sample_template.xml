@@ -1,5 +1,9 @@
 <template>
 	<archetype>
-		
+		<name>Blood pressure</name>
+		<elements>
+			<element>
+			</element>
+		</elements>
 	</archetype>
 </template>
