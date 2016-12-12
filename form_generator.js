@@ -4,7 +4,6 @@ var content;//store the part dynamically generated from templates
 
 
 function uploadXML() {
-
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -24,7 +23,6 @@ function parser(xml) {
     content = "";
     arch = doc.getElementsByTagName("archetype"); //get archetypes
     for (i = 0; i < arch.length; i++) { //number of archetypes in the teamplate
-
         //name of an archetype
         name_arch = arch[i].getElementsByTagName("name")[0].textContent;
         // console.log(name_arch)
@@ -60,7 +58,7 @@ function generatelist () {
 	return result;
 }
 
-//will be using validation later
+ 
 // // validation
 // function validateForm() {
 //     var x = document.forms["myForm"]["fname"].value;
@@ -108,6 +106,7 @@ function generatebutton()
 	return button1+value+button2;
 }
 
+
 //generate general tags
 function generatetag(inputdata,value,classname,extra)
 {	var head = "<" + inputdata;
@@ -128,6 +127,7 @@ function generatetag(inputdata,value,classname,extra)
 	
 }
 
+
 //close tags for every tag
 function closetab(string)
 {
@@ -140,6 +140,7 @@ function closetab(string)
 	var result = firstpart + secondpart+thridpart;
 	return result;
 }
+
 
 //generate paragraphtag
 function generateparagraphtag(item)
