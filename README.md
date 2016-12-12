@@ -16,31 +16,9 @@ The only issue so far is that back end is very unstable. We have contact the one
 -----------------------
 input examples
 -----------------------
-The template example is in the repository naming sample_template.xml
+The template example is in the repository naming sample_template.xml.
 
 -----------------------
 output examples
 -----------------------
-“<html>
-<head>
-<link rel="stylesheet" type="text/css" href="stylesheet.css"></head>
-<div class = "form-style-9">
-<form>
-<ul>
-<p>Blood pressure</p>
-<li class = "field5">
-<input value = "Systolic" required>
-</li>
-<li class = "field5">
-<input value = "Diastolic" required>
-</li>
-<p>Body temperature</p>
-<li class = "field5">
-<input value = "Temperature" required>
-</li>
-<button value = "submit"  type = "submit" onclick="myFunction()" >
-submit</button>
-</ul>
-</form>
-</div>
-</html>”
+The output html is in the repository called test.html.
