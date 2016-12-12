@@ -32,7 +32,9 @@ Output examples
 -----------------------
 The output html is in the repository called test.html.be
 Below is a simple example.
-<!-- <html>
+
+ ```html
+<html>
 <head>
 <link rel="stylesheet" type="text/css" href="stylesheet.css"></head>
 <div class = "form-style-9">
@@ -55,4 +57,5 @@ submit</button>
 </form>
 </div>
 </html>
- -->
+```
+
