@@ -1,5 +1,7 @@
 # PEACH
 
+
+
 Form generator description
 ----------------------
 The project is a form generator which takes a sample XML openEHR opertional template as input and generates an HTML form as an output, following our client's demand. The system will be used by UCLH, allowing users to store data in openEHR-complying backend systems. In this particular prototype we used HTML5, CSS3 and JavaScript. No external libraries were used so far. 
@@ -25,7 +27,7 @@ Input examples
 -----------------------
 A sample representation of an openEHR operational template is provdied in sample_template.xml file. It has a simplified structure for the purpose of this prototype. Actual archetypes and template are provided in corresponding directories of this repository. They were generated on prior stages of experiments and will be used later on.
 
------------------------
+
 Output examples
 -----------------------
 The output html is in the file called test.html.
