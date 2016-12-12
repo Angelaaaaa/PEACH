@@ -14,9 +14,14 @@ We decided to parse the system and do each part individually and integrated it.
 The only issue so far is that back end is very unstable. We have contact the one who is responsible for the backend and will fix it later.
 
 -----------------------
+input examples
+-----------------------
+The template example is in the repository naming sample_template.xml
+
+-----------------------
 output examples
 -----------------------
-<html>
+“<html>
 <head>
 <link rel="stylesheet" type="text/css" href="stylesheet.css"></head>
 <div class = "form-style-9">
@@ -38,4 +43,4 @@ submit</button>
 </ul>
 </form>
 </div>
-</html>
+</html>”
