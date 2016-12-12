@@ -1,21 +1,64 @@
 <html>
- <head>
- </head>
- <form>
- <ul>
- <li>
- <input value= "id" > 
- </li>
- <li>
- <input value= "name" > 
- </li>
- <li>
- <input value= "homeaddress" > 
- </li>
- <li>
- <input value= "whatever" > 
- </li>
- <button type = "submit" >confirm</button> </ul>
- </form>
- </html>
- 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+var authorization ="Basic dWNscGVhY2hfYzRoOlFXeFBwYnl3;";
+var ehrId = "626a6c9c-b24a-4efb-9674-1647e6e2a9e8"
+
+$.ajaxSetup({
+    headers: {
+        "Authorization": authorization
+    }
+});
+var compositionData = {
+    "ctx/time": "2014-3-19T13:10Z",
+    "ctx/language": "en",
+    "ctx/territory": "CA",
+    "vital_signs/body_temperature/any_event/temperature|magnitude": 37.1,
+    "vital_signs/body_temperature/any_event/temperature|unit": "°C",
+    "vital_signs/blood_pressure/any_event/systolic": 120,
+    "vital_signs/blood_pressure/any_event/diastolic": 90,
+    "vital_signs/height_length/any_event/body_height_length": 171,
+    "vital_signs/body_weight/any_event/body_weight": 57.2
+};
+var queryParams = {
+    "ehrId": ehrId,
+    templateId: 'Vital Signs',
+    format: 'FLAT',
+    committer: 'Belinda Nurse'
+};
+$.ajax({
+    url: baseUrl + "/composition?" + $.param(queryParams),
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(compositionData),
+    success: function (res) {
+        $("#header").html("Store composition");
+        $("#result").html(res.meta.href);
+    }
+});
+</script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css"></head>
+<div class = "form-style-9">
+<form>
+<ul>
+<li class = "field5">
+<input value = "id"required>
+</li>
+<li class = "field5">
+<input value = "name"required>
+</li>
+<li class = "field5">
+<input value = "homeaddress"required>
+</li>
+<li class = "field5">
+<input value = "whatever"required>
+</li>
+<button value = "submit" type = "submit" onclick="myFunction()" >
+submit</button>
+</ul>
+</form>
+</div>
+</html>

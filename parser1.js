@@ -1,9 +1,6 @@
-
 function uploadXML() {
 
-
     var request = new XMLHttpRequest();
-
 
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -21,13 +18,11 @@ function parser(xml) {
 
     arch = doc.getElementsByTagName("archetype"); //get archetypes
 
-
     for (i = 0; i < arch.length; i++) { //number of archetypes in the teamplate
 
         //name of an archetype
         name_arch = arch[i].getElementsByTagName("name")[0].textContent;
         console.log(name_arch);
-
 
         //collection of elements contained in one archetype
         elements = arch[i].getElementsByTagName("element");
@@ -39,7 +34,6 @@ function parser(xml) {
           //name and type of each element within an archetype
           name_elem = elements[j].getElementsByTagName("name")[0].textContent;
           type = elements[j].getElementsByTagName("type")[0].textContent;
-
 
           console.log('***');
           console.log(name_elem);
