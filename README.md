@@ -26,7 +26,33 @@ The only issue so far is that EHRScape backend system, on which we relied, showe
 Input examples
 -----------------------
 A sample representation of an openEHR operational template is provdied in sample_template.xml file. It has a simplified structure for the purpose of this prototype. Actual archetypes and template are provided in corresponding directories of this repository. They were generated on prior stages of experiments and will be used later on.
-
+<?xml version="1.0" encoding="UTF-8"?>
+ ```template
+<template>
+  <archetype>
+    <name>Blood pressure</name>
+    <elements>
+      <element>
+        <name>Systolic</name>
+        <type>Integer</type>
+      </element>
+      <element>
+        <name>Diastolic</name>
+        <type>Integer</type>
+      </element>
+    </elements>
+  </archetype>
+  <archetype>
+    <name>Body temperature</name>
+    <elements>
+      <element>
+        <name>Temperature</name>
+        <type>Integer</type>
+      </element>
+    </elements>
+  </archetype>
+</template>
+```
 
 Output examples
 -----------------------
