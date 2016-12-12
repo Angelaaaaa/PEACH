@@ -1,24 +1,32 @@
 # PEACH
 peach 
 ----------------------
-form generator description
+Form generator description
 ----------------------
-The project is a form generator which take xml as input and generate form as an output as to our client's demand. It will be used by UCLH allowing users to store data into database in EHR backend.
-We use simple html, css and javascript. No library used so far. 
-The file is only for prototypes.
+The project is a form generator which takes a sample XML openEHR opertional template as input and generates an HTML form as an output, following our client's demand. The system will be used by UCLH, allowing users to store data in openEHR-complying backend systems. In this particular prototype we used HTML5, CSS3 and JavaScript. No external libraries were used so far. 
+Bear in mind that the current file provided is only a prototype and does not provide any real backend connectivity
+
+-------------------------
+Running the system
+-------------------------
+
+In order to sussesfully run the application, an npm http-server needs to be installed and launched. After this, the application can be accessed on http://localhost:8080
+A detailed guide to this process is provided on our team website, Prototype page, Parsing prototype.
+
+To generate markup, simply press the "Generate" button on the screen. An XMLc file will be uploaded, parsed and on this basis markup will be output.
 
 -------------------------
 Design Decisions & Issues
 -------------------------
-We decided to parse the system and do each part individually and integrated it.
-The only issue so far is that back end is very unstable. We have contact the one who is responsible for the backend and will fix it later.
+Initially, we decided to develop system components individually and then integrated them.
+The only issue so far is that EHRScape backend system, on which we relied, showed unstable behaviour. Our team has already contacted technical support of the system and is waiting for their response.
 
 -----------------------
-input examples
+Input examples
 -----------------------
-The template example is in the repository naming sample_template.xml.
+A sample representation of an openEHR operational template is provdied in sample_template.xml file. It has a simplified structure for the purpose of this prototype. Actual archetypes and template are provided in corresponding directories of this repository. They were generated on prior stages of experiments and will be used later on.
 
 -----------------------
-output examples
+Output examples
 -----------------------
-The output html is in the repository called test.html.
+The output html is in the file called test.html.
