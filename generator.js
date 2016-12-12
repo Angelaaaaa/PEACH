@@ -50,7 +50,3 @@ function parser(xml) {
     console.log(b);
 }
 }
-
-uploadXML();
-
-uploadXML();
