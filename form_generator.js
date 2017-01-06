@@ -3,7 +3,8 @@ var csslink = "<link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\
 var content;//store the part dynamically generated from templates
 
 
-function uploadXML() {
+
+function uploadXML(){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -35,9 +36,9 @@ function parser(xml) {
           type = elements[j].getElementsByTagName("type")[0].textContent;     
           content = content + generatefieldtag(name_elem);
             }
+        }
+                generate();
         }  
-    generate();
-}
 
 //generate archetypes in paragraph tag
 function generatearchtypetag(a){
@@ -78,6 +79,7 @@ function generate(){
 //generate the html file
 function generatemarkupfile(inputdata){
 	// head = inputdata;
+	console.log(1);
 	var head = generatetag("html","","","");
 	outputfile = head+ generatehead()+generatebody()+ closetab(head);	
 	return outputfile;
@@ -150,7 +152,4 @@ function generateparagraphtag(item)
 	var secondpart = closetab("<p><br>");
 	return firstpart+ data + secondpart;
 }
-
-
-
 
