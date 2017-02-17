@@ -1,12 +1,8 @@
 <!DOCTYPE>
 <html>
 <head>
-<script>
-function login(){
-    window.location.href = "generator.html";
-}
-</script>
-
+<script type="text/javascript" src = "form_generator.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style type="text/css">
 .form-style-9{
     max-width: 450px;
@@ -83,23 +79,48 @@ function login(){
 </head>
 <body>
 
-<form class="form-style-9" method = "post">
+<!-- <div id = "templatesection">
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    Select template to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type = "submit" name = "upload">
+</form> -->
+
+<form id="myform" onclick = "uploadfile()">
+  <p>
+    <input id="myfile" name="files[]" multiple="" type="file" />
+    <textarea id="text" rows="20" cols="40">click [Choose Files] to load a file</textarea>
+  </p>
+</form>
+
+<p>or</p>
+
+
+<form action="form_generator.js" method="post" enctype="multipart/form-data">
+    <select id = "template">
+        <option value = "sample_template.xml">sample_template.xml</option>
+        <option value = "sample_template.xml">sample_template.xml</option>
+        <option value = "sample_template.xml">sample_template.xml</option>
+        <option value = "sample_template.xml">sample_template.xml</option>
+    </select>
+</form>
+ <input id = "generate" type="submit" onclick="uploadXML()" value="generate" name="submit">
+</div>
+
+
+<div id = "formsection" hidden>
+<form class="form-style-9">
 <ul>
-<li>
-<input content = "text" value = "username">
-</li>
-<li>
-<input content = "text" value = "password">
-</li>
-<li>
-<input type="button" onclick="login()" type="submit" value="log in" />
-</li>
 
 
+<li>
+<div id  = "fileoutput"></div>
+</li>
+<li>
+ <input id = "generate" type="submit" onclick="back()" value="goback" name="submit">
+</li>
 </ul>
+</div>
 </form>
 </body>
 </html>
-
-
-
