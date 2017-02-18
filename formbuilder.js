@@ -1,39 +1,7 @@
 var outputfile = ""
 var csslink = "<link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\">";
 var content;//store the part dynamically generated from templates
-var uploadedtemplate = "";
 
-function uploadfile(){
-	document.forms['myform'].elements['myfile'].onchange = function(evt) {
-    if(!window.FileReader) return; // Browser is not compatible
-// debugger;
-    var reader = new FileReader();
-
-    reader.onload = function(evt) {
-        if(evt.target.readyState != 2) return;
-        if(evt.target.error) {
-            alert('Error while reading file');
-            return;
-        }
-
-        filecontent = evt.target.result;
-
-        // document.forms['myform'].elements['text'].value = evt.target.result;
-        // console.log(evt.target.result);
-        uploadedtemplate = evt.target.result;
-        console.log(uploadedtemplate);
-    };
-
-    reader.readAsText(evt.target.files[0]);
-};
-}
-
-
-function back(){
-	 document.getElementById("fileoutput").innerHTML = "";
-	 $('#myform').hide();
-     $('#templatesection').show(); 
-}
 
 
 function uploadXML(){
@@ -41,14 +9,32 @@ function uploadXML(){
     request.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             parser(this);
-            $('#formsection').show();
-            $('#templatesection').hide(); 
         }
     };
-    console.log(document.getElementById("template").value);
-    request.open("GET", document.getElementById("template").value, true);
-    // request.open("GET", "sample_template.xml", true);
+    request.open("GET", "sample_template.xml", true);
     request.send();
+}
+
+function markup(markupfile,arch,element){
+   this.markupfile = markupfile;//string text
+   this.arch = arch;//array
+}
+
+function arch(name,element){
+	this.name = name;//string
+	this.element = element;//array
+}
+
+markup.prototype.getarch = function(){
+	return this.arch;
+}
+
+markup.prototype.getelement = function(){
+	return this.element;
+}
+
+markup.prototype.getmarkupfile = function(){
+	return this.markupfile;
 }
 
 
@@ -81,14 +67,12 @@ function generatearchtypetag(a){
 	return generateparagraphtag(a);
 }
 
-
 //generate fields in input tag
 function generatefieldtag(f)
 {
 	listtag = generatetag("li","","field5","");
 	return listtag + generatetag("input",f,"","required") + closetab(listtag);    
 }
-
 
 //generate a list containing archtypes and fields
 function generatelist () {
@@ -101,11 +85,10 @@ function generatelist () {
 
 //connect to the index.html
 function generate(){
-	//get template from somewhere
-	// var inputdata = document.getElementById("fileinput").value;
-	var result = '5';
+	var inputdata = document.getElementById("fileinput").value;
+	// var result = '5';
 	document.getElementById("fileoutput").innerHTML = generatemarkupfile();
-	}
+}
 
 //generate the html file
 function generatemarkupfile(inputdata){
@@ -116,13 +99,11 @@ function generatemarkupfile(inputdata){
 	return outputfile;
 }
 
-
 //generate <head>
 function generatehead () {
 	var head = generatetag("head","","","");
 	return head + csslink + closetab(head);
 }
-
 
 //generate <body>
 function generatebody () {
@@ -144,8 +125,7 @@ function generatebutton()
 
 //generate general tags
 function generatetag(inputdata,value,classname,extra)
-{	
-	var head = "<" + inputdata;
+{	var head = "<" + inputdata;
 	if (value != "")
 		{
 			head = head + " value = \""+ value + "\"";
@@ -159,10 +139,9 @@ function generatetag(inputdata,value,classname,extra)
 		head = head + " " + extra;
 	}
 	head = head + ">\n";
-	return head;	
+	return head;
+	
 }
-
-
 
 
 //close tags for every tag
@@ -187,37 +166,4 @@ function generateparagraphtag(item)
 	var secondpart = closetab("<p><br>");
 	return firstpart+ data + secondpart;
 }
- 
-
-// function generatelistype(name,item)//name is for list name and item is the array for storing list items.
-// {
-// 	//example
-// 	// <div class="dropdown">
-//     //  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-//     //     Dropdown
-//     //   <span class="caret"></span>
-//     // </button>
-//     // <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-//     //     <li><a href="#">Action</a></li>
-//     //     <li><a href="#">Another action</a></li>
-//     //     <li><a href="#">Something else here</a></li>
-//     //     <li role="separator" class="divider"></li>
-//     //     <li><a href="#">Separated link</a></li>
-//     //   </ul>
-//     // </div>
-// 	var firstpart = '<div class="dropdown">
-//   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">\n';
-//   	var listname = name;
-//   	var secondpart = '<span class="caret"></span>
-//   </button>
-//   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">\n';
-//   	var listitem = '';
-//   	for ( i = 0 ; i < item.length;i++)
-//   	{
-//   		listitem = listitem + '<li><a href="#">'+item[i]+'</a></li>\n';
-//   	}
-//   	var thirdpart = '</ul>
-// </div>\n';
-// 	return firstpart+listname + secondpart+listitem ＋thirdpart;
-// }
 

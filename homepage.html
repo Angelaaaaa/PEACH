@@ -2,8 +2,8 @@
 <html>
 <head>
 <script>
-function login(){
-    window.location.href = "generator.html";
+function generate(){
+    window.location.href = "form.html";
 }
 </script>
 
@@ -83,23 +83,24 @@ function login(){
 </head>
 <body>
 
-<form class="form-style-9" method = "post">
-<ul>
-<li>
-<input content = "text" value = "username">
-</li>
-<li>
-<input content = "text" value = "password">
-</li>
-<li>
-<input type="button" onclick="login()" type="submit" value="log in" />
-</li>
-
-
-</ul>
+<div id = "templateloading">
+<form action="fsdf.php" method="post" enctype="multipart/form-data">
+    Select template to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
 </form>
+
+<p>or</p>
+
+<form action="fsdf.php" method="post" enctype="multipart/form-data">
+    <select>
+        <option value = " ">=====</option>
+        <option value = " ">=====</option>
+        <option value = " ">=====</option>
+        <option value = " ">=====</option>
+    </select>
+</form>
+ <input type="submit" onclick="generate()" value="generate" name="submit">
+</div>
+
 </body>
 </html>
-
-
-
