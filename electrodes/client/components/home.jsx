@@ -48,17 +48,30 @@ Home.propTypes = {
   value: PropTypes.number.isRequired
 };
 
+//mapStateToProps needs to be defined before using connect()
+//it tells you how to transform the current redux store state into react
+//-component props
+//Reading the state
 const mapStateToProps = (state) => {
   return {
     checked: state.checkBox.checked, value: state.number.value
+    //because checked requires this function to tell whether checked is true or false
+    //also value needs to know its originl value
   };
 };
 
+
+//mapDispatchToProps receive  dispatch and return callback props for react
+
 const mapDispatchToProps = (dispatch) => {
   return {
+
     onChangeCheck: () => {
       dispatch(toggleCheck());
     },
+    //for example a function wants to inject props of onIncrease
+    //we want onIncrease to dispatch the incNumber action
+
     onIncrease: () => {
       dispatch(incNumber());
     },
@@ -67,5 +80,5 @@ const mapDispatchToProps = (dispatch) => {
     }
   };
 };
-
+//finally we create connect on this two functions called home
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
